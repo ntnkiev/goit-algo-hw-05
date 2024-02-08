@@ -40,10 +40,12 @@ def count_logs_by_level(logs: list) -> dict:
 def display_log_counts(counts: dict):
     column1 = "Рівень логування "
     column2 = "| Кількість"
+    width_col1 = len(column1)
+    width_col2 = len(column2)
     print(column1 + column2)
-    print("-" * len(column1) + "|" + "-" * len(column2))
+    print(f"-" * len(column1) + "|" + "-" * len(column2))
     for key, value in counts.items():
-        print({key} " "*(len(column1)-len(key)) + "|" + "{value}")
+        print(f"{key:<width_col1}|{value:<width_col2}")
 
 
     pass
