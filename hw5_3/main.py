@@ -34,17 +34,27 @@ def filter_logs_by_level(logs: list, level: str) -> list:
 def count_logs_by_level(logs: list) -> dict:
     level_dict = defaultdict(int)
     for item in logs:
-        for value in item.values():
-            level_dict???
-            
+        level_dict[item["level"]] +=1 
     return dict(level_dict)
+
+def display_log_counts(counts: dict):
+    column1 = "Рівень логування "
+    column2 = "| Кількість"
+    print(column1 + column2)
+    print("-" * len(column1) + "|" + "-" * len(column2))
+    for key, value in counts.items():
+        print({key} " "*(len(column1)-len(key)) + "|" + "{value}")
+
+
+    pass
 
 def main():
     log = load_logs(default_path)
     # print(log)
     # log_level = filter_logs_by_level(log, "ERROR")
-    # for item in log_level:
     print(count_logs_by_level(log))
+    counts = count_logs_by_level(log)
+    display_log_counts(counts)
 
 
 if __name__ == "__main__":
