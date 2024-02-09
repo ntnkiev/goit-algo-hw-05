@@ -1,13 +1,13 @@
 def caching_fibonacci() -> int:
-    cache = {}
+    cache = {} #створення порожнього словнику кешу
 
-    def fibonacci(n):
+    def fibonacci(n): #обчислення чисел Фібоначчі
         if n in cache:
-            return cache[n]
+            return cache[n] #якщо результат є в кешу: повернення результату
         if n <= 1:
             return n
         else: 
-            cache[n] = fibonacci(n - 1) + fibonacci(n - 2)
+            cache[n] = fibonacci(n - 1) + fibonacci(n - 2) #додавання в кеш нового результату
             return cache[n]
     return fibonacci
 
